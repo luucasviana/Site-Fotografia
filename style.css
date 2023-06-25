@@ -1,0 +1,500 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&display=swap');
+
+
+body{
+	font-family: 'Poppins', sans-serif;
+    margin: 0;
+	animation: fadeInAnimation ease 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+/* #Tela Principal
+================================================== */
+
+.container-principal {
+    position: relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	height: 100vh;
+	background-image: url(img/fotografando.jpg);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 40px rgba(0,0,0,0.2);
+	transition: all 300ms linear;
+	transform-origin: center top;
+}
+.container-principal h1{
+    color: #fff;
+	font-size: 6vw;
+    line-height: 1;
+}
+.container-principal .sub-infor{
+    font-family: 'Dancing Script', cursive;
+	letter-spacing: 8px;
+	color: rgb(163, 111, 206); text-shadow: black 0.1em 0.1em 0.2em;
+	font-size: 29px;
+	line-height: 1;
+	font-weight: 700;
+}
+
+@media screen and (max-width: 580px){
+	.container-central h1{
+		font-size: 40px;
+	}
+	.sub-infor span{
+		font-size: 20px;
+		letter-spacing: 4px;
+	}
+	.container-infor p span{
+		font-size: 13px;
+	}
+}
+
+.container-principal p a{
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 2px;
+	text-decoration: none;
+}
+.container-principal p span{
+	margin-left: 15px;
+	margin-right: 15px;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding-bottom: 35px;
+}
+.container-principal p span:before {
+	position: absolute;
+	content: '';
+	bottom: 10px;
+	left: 50%;
+	height: 30px;
+	width: 30px;
+	margin-left: -15px;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px 30px;
+	background-image: url('http://www.ivang-design.com/svg-load/portfolio/down.svg');
+	opacity: 0.2;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+.container-principal p span:hover:before {
+    opacity: 1;
+	bottom: 5px;
+}
+
+/* #Tela Principal - Botões
+================================================== */
+
+.container-central {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba(47, 47, 49, 0.37);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 1px );
+}
+.container-central h1 {
+	font-family: 'Ysabeau', sans-serif;
+}
+
+/* #Tela Principal - Hamburguer
+================================================== */
+
+.top-nav {
+  	display: flex;
+  	flex-direction: row-reverse;
+  	align-items: center;
+  	justify-content: space-between;
+  	color: #FFF;
+  	height: 50px;
+  	padding: 1em;
+  	font-weight: 500;
+  	box-sizing: border-box;
+}
+.menu {
+  	display: flex;
+  	flex-direction: row;
+  	list-style-type: none;
+  	margin: 0;
+  	padding: 0;
+}
+.menu li {
+  	margin: 0 1rem;
+  	overflow: hidden;
+}
+.sobre a {
+	font-size: 15px;
+	line-height: 20px;
+	color: #fff;
+	letter-spacing: 2px;
+	top: 50%;
+	left: 40px;
+	transition: all 0.2s ease-in;
+	text-decoration: none;
+}
+.sobre a:hover {
+	color: rgb(163, 111, 206);
+}
+.contato a {
+	font-size: 15px;
+	line-height: 20px;
+	color: #fff;
+	letter-spacing: 2px;
+	top: 50%;
+	right: 40px;
+	transition: all 0.2s ease-in;
+	text-decoration: none;
+}
+.contato a:hover {
+	color: rgb(163, 111, 206);
+}
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#menu-toggle {
+  display: none;
+}
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba(47, 47, 49, 0.37);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 1px );
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #3333336e;
+    height: 1.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+  }
+}
+
+
+/* #Tela Menu - Sobre e Contato
+================================================== */
+
+.section-sobre {
+    position: relative;
+	width: 100%;
+	text-align: center;
+	display: block;
+	height: 100vh;
+	background-image: url(img/fotografando.jpg);
+	background-size: cover;
+	background-position: center;
+	transition: all 300ms linear;
+	transform-origin: center top;
+}
+.section-central-sobre {
+    position: absolute;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.section-sobre img {
+    width: 300px;
+	height: 424px;
+	border-radius: 15px;
+	outline: 1px solid rgb(163 111 206 /50%);
+	outline-offset: -8px;
+	object-fit: cover;
+	box-shadow: 0 0 20px rgba(0,0,0,0.15);
+	filter: grayscale(1);
+	transition: .7s linear;
+	cursor: pointer;
+}
+.section-sobre img:hover{
+	transform: scale(1.1);
+	filter: grayscale(0);
+}
+.section-sobre p span {
+    font-family: 'Dancing Script', cursive;
+	letter-spacing: 1px;
+	color: rgb(163, 111, 206); text-shadow: black 0.1em 0.1em 0.2em;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+.section-contato {
+    position: relative;
+	text-align: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	height: 100vh;
+	background-image: url(img/fotografando.jpg);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 40px rgba(0,0,0,0.2);
+	transition: all 300ms linear;
+	transform-origin: center top;
+}
+.section-central-contato {
+    position: absolute;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1;
+	background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba(47, 47, 49, 0.37);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 1px );
+}
+.section-central-contato .email a{
+	display: inline-block;
+    margin: 20px;
+	font-size: 32px;
+	font-weight: 900;
+	letter-spacing: 1px;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: all 0.1s ease;
+	transition: all 0.8s ease;
+}
+.section-central-contato .email a:hover{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+	color: rgb(163, 111, 206);  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.section-central-contato .social p a{
+	font-size: 18px;
+	font-weight: 600;
+	color: rgb(163, 111, 206);  text-shadow: black 0.1em 0.1em 0.2em;
+	letter-spacing: 5px;
+	text-decoration: none;
+}
+.section-central-contato .social span{
+	margin-left: 15px;
+	margin-right: 15px;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding-bottom: 35px;
+}
+.section-central-contato .social span:before {
+	position: absolute;
+	content: '';
+	bottom: 10px;
+	left: 50%;
+	height: 30px;
+	width: 30px;
+	margin-left: -15px;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px 30px;
+	background-image: url('http://www.ivang-design.com/svg-load/portfolio/down.svg');
+	opacity: 0.2;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+.section-central-contato .social span:hover:before {
+    opacity: 1;
+	bottom: 5px;
+}
+
+@media screen and (max-width: 580px){
+	.section-central-contato .email a{
+		font-size: 17px;
+	}
+	.section-central-contato .social a{
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 13px;
+		letter-spacing: 0;
+	}
+}
+
+/* #Ensaio - Aniversario - Batizado
+================================================== */
+
+
+.descricao{
+	justify-content: center;
+	text-align: center;
+}
+
+.travel-section,
+.wildlife-section,
+.nature-section {
+    position: relative;
+	padding-top: 50px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: block;
+	overflow: hidden;
+	overflow-y: hidden;
+	background-image: url(img/fotografando.jpg);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 40px rgba(0,0,0,0.2);
+	transition: all 300ms linear;
+	transform-origin: center top;
+}
+
+.container-img {
+	display: grid;
+    width: 55%;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+@media screen and (max-width: 580px){
+	.container-img {
+		width: 85%;
+	}
+}
+.travel-section img,
+.wildlife-section img,
+.nature-section img {
+    width: 100%;
+	height: auto;
+	margin: auto;
+	display: block;
+	border-radius: 6px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.travel-section h3,
+.wildlife-section h3,
+.nature-section h3 {
+	font-size: 55px;
+	line-height: 1.3;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: #fff;
+}
+.travel-section p,
+.wildlife-section p,
+.nature-section p {
+	font-size: 14px;
+	line-height: 1.7;
+	letter-spacing: 1px;
+	color: #fff;
+}
+.travel-section p span,
+.wildlife-section p span,
+.nature-section p span {
+	font-size: 20px;
+	line-height: 1.3;
+	font-weight: 700;
+	color: rgb(163, 111, 206); text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+/* #Botão Close
+================================================== */
+
+.botao-close {
+    position: absolute;
+	top: 8px;
+	right: 20px;
+	width: 30px;
+	display: block;
+	overflow: hidden;
+	height: 30px;
+	transition: all 200ms linear;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 36px 36px;
+	background-image: url('http://www.ivang-design.com/svg-load/portfolio/close.svg');
+	cursor: pointer;
+	z-index: 11;
+}
+.botao-close:hover {
+    transform: rotate(90deg);
+}
